@@ -88,7 +88,7 @@ Order by anagrafica.cognomeRagione, anagrafica.nominativo, grad.punteggioTotale 
 	<field name="dataPubblicazione" class="java.util.Date"/>
 	<field name="oggetto" class="java.lang.String"/>
 	<field name="dataPubblicazioneGrad" class="java.sql.Date"/>
-	<variable name="PagGrad" class="java.lang.Integer">
+	<variable name="PagGrad" class="java.lang.Integer" incrementType="Page" calculation="Highest">
 		<variableExpression><![CDATA[$V{PAGE_NUMBER} - 1]]></variableExpression>
 	</variable>
 	<background>
@@ -395,21 +395,24 @@ di edilizia residenziale pubblica sovvenzionata
 			<textField>
 				<reportElement x="140" y="0" width="280" height="18" uuid="18356363-31c1-495c-9007-71efd7347dd5"/>
 				<textElement textAlignment="Center">
-					<font size="8" isItalic="true"/>
+					<font isItalic="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$R{ReportName}+" "+$R{ReportVersion}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="430" y="0" width="125" height="18" uuid="b5fe3b24-cc53-42ee-b307-64545d66978f"/>
-				<textElement textAlignment="Center" verticalAlignment="Top">
-					<font size="8"/>
-				</textElement>
-				<textFieldExpression><![CDATA["Pagina " + ($V{PAGE_NUMBER}-1) + " di " + ($V{PAGE_NUMBER}-1)]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="0" y="0" width="130" height="18" uuid="88e11750-80d9-4e90-ba58-367e9460d25e"/>
 				<textElement textAlignment="Left"/>
 				<textFieldExpression><![CDATA[$P{FOOTERSTAMPA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="420" y="0" width="65" height="18" uuid="c8b4db12-fe09-49a6-bd3a-62edfe83e569"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina " + ($V{PAGE_NUMBER}-1)]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="485" y="0" width="69" height="18" uuid="1c0f6eaf-35d0-4082-bf55-007c877cf2c4"/>
+				<textElement textAlignment="Left"/>
+				<textFieldExpression><![CDATA[" di " + ($V{PAGE_NUMBER}-1)]]></textFieldExpression>
 			</textField>
 		</band>
 	</pageFooter>
