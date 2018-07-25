@@ -88,9 +88,6 @@ Order by anagrafica.cognomeRagione, anagrafica.nominativo, grad.punteggioTotale 
 	<field name="dataPubblicazione" class="java.util.Date"/>
 	<field name="oggetto" class="java.lang.String"/>
 	<field name="dataPubblicazioneGrad" class="java.sql.Date"/>
-	<variable name="PagGrad" class="java.lang.Integer" incrementType="Page" calculation="Highest">
-		<variableExpression><![CDATA[$V{PAGE_NUMBER} - 1]]></variableExpression>
-	</variable>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
